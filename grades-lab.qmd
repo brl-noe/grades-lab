@@ -67,3 +67,11 @@ ggplot(mean_grade,aes(x = group, y=mean_g)) +
   geom_col() 
 ```
 
+## Question 7
+
+```{r}
+ggplot(grades,aes(x = grade)) +
+  geom_bar() +
+  facet_wrap(~ trimester)
+```
+
