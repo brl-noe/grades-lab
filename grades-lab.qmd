@@ -75,3 +75,21 @@ ggplot(grades,aes(x = grade)) +
   facet_wrap(~ trimester)
 ```
 
+## Question 8
+```{r}
+grade_per_student <- grades %>% 
+  distinct(id, group, .keep_all = FALSE) %>%
+  group_by(id) %>%
+  summarize(n_grade=n(), .groups = 'drop') %>%
+  slice_head(n=10)
+```
+
+
+```{r}
+grade_per_student %>%
+  summarise(min=min(n_grade),
+            median=median(n_grade),
+            mean=mean(n_grade),
+            max=mean(n_grade))
+```
+
