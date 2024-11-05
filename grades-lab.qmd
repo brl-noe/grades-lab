@@ -40,5 +40,21 @@ The data set contains 887 students.
 ```{r}
 students <- grades %>%
   distinct(id, group, .keep_all = FALSE) %>%
-  slice_head(n = 5)
+  slice_sample(n=10)
 ```
+
+## Question 5
+
+```{r}
+library(ggplot2)
+ggplot(students, aes(x = id)) + 
+  geom_bar() +
+  facet_wrap(~ group)
+```
+
+## Question 6
+
+```{r}
+
+```
+
