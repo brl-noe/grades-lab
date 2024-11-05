@@ -55,6 +55,15 @@ ggplot(students, aes(x = id)) +
 ## Question 6
 
 ```{r}
+mean_grade <- grades %>%
+  filter(course=="Hunting and Gathering Skills") %>%
+  group_by(group) %>%
+  summarise(mean_g=mean(grade))
+```
 
+
+```{r}
+ggplot(mean_grade,aes(x = group, y=mean_g)) +
+  geom_col() 
 ```
 
