@@ -1,0 +1,19 @@
+---
+title: "Bridel"
+author: "Noé Bridel"
+format: html
+---
+
+## Question 1
+
+```{r}
+library(dplyr)
+library(vroom)
+library(here)
+```
+
+```{r}
+here::i_am("grades-lab.Rproj")
+grades <- vroom(here("grades.csv"))
+```
+
