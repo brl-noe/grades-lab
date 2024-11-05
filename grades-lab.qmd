@@ -106,6 +106,27 @@ grade_SSP <- grades %>%
 ## Question 10
 
 ```{r}
+number_grade_SSP <- grade_SSP %>%
+  group_by(id) %>%
+  summarize(n_grades_SSP = n())
+```
 
+```{r}
+distribution_SSP <- number_grade_SSP %>%
+  group_by(n_grades_SSP) %>%
+  summarize(n_student_SSP = n())
+```
+
+
+```{r}
+ggplot(distribution_SSP, aes(x = factor(n_grades_SSP), y = n_student_SSP)) +
+  geom_col()
+```
+
+## Question 11
+
+```{r}
+ggplot(number_grade_SSP, aes(x = factor(n_grades_SSP))) +  
+  geom_bar(aes(fill = group))
 ```
 
