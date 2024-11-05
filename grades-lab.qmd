@@ -103,3 +103,9 @@ grade_SSP <- grades %>%
   slice_head(n=10)
 ```
 
+## Question 10
+
+```{r}
+
+```
+
