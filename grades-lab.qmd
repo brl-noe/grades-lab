@@ -39,8 +39,14 @@ The data set contains 887 students.
 
 ```{r}
 students <- grades %>%
-  distinct(id, group, .keep_all = FALSE) %>%
-  slice_sample(n=10)
+  distinct(id, group, .keep_all = FALSE)
+```
+
+
+```{r}
+students %>%
+  slice_sample(n=10) %>%
+  knitr::kable()
 ```
 
 ## Question 5
@@ -80,8 +86,14 @@ ggplot(grades,aes(x = grade)) +
 grade_per_student <- grades %>% 
   distinct(id, group, .keep_all = FALSE) %>%
   group_by(id) %>%
-  summarize(n_grade=n(), .groups = 'drop') %>%
-  slice_head(n=10)
+  summarize(n_grade=n())
+```
+
+
+```{r}
+grade_per_student %>%
+  slice_head(n=10) %>%
+  knitr::kable()
 ```
 
 
@@ -99,8 +111,14 @@ grade_per_student %>%
 grade_SSP <- grades %>%
   filter(course=="Shamanism and Spiritual Practices") %>%
   group_by(id, group) %>%
-  summarize(n=n()) %>%
-  slice_head(n=10)
+  summarize(n=n(), .groups = 'drop')
+```
+
+
+```{r}
+grade_SSP %>% 
+  slice_head(n=10) %>%
+  knitr::kable()
 ```
 
 ## Question 10
@@ -126,7 +144,10 @@ ggplot(distribution_SSP, aes(x = factor(n_grades_SSP), y = n_student_SSP)) +
 ## Question 11
 
 ```{r}
-ggplot(number_grade_SSP, aes(x = factor(n_grades_SSP))) +  
-  geom_bar(aes(fill = group))
+ggplot(number_grade_SSP, aes(x = factor(n_grades_SSP), fill = group)) +  
+  geom_bar()
 ```
+
+## Question 12
+
 
