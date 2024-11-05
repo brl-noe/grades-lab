@@ -17,3 +17,11 @@ here::i_am("grades-lab.Rproj")
 grades <- vroom(here("grades.csv"))
 ```
 
+## Question 2
+
+```{r}
+grades %>%
+  select(grade) %>%
+  summarise(n=n())
+```
+The data set contains 44771 grades.
