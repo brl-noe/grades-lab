@@ -93,3 +93,13 @@ grade_per_student %>%
             max=mean(n_grade))
 ```
 
+## Question 9
+
+```{r}
+grade_SSP <- grades %>%
+  filter(course=="Shamanism and Spiritual Practices") %>%
+  group_by(id, group) %>%
+  summarize(n=n()) %>%
+  slice_head(n=10)
+```
+
